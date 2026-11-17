@@ -13,8 +13,9 @@
 1. 修改 `package.json` 中的版本，更新锁文件和 `CHANGELOG.md`。
 2. 运行 `npm ci`、`npm test`、`npm run typecheck`、`npm run build`。
 3. 在 Windows 运行 `npm run dist`，再运行 `node scripts/packaged-smoke.cjs`。
-4. 手测真实播放、seek、收藏夹、托盘、媒体键、退出和续播。未完成的项目写进版本说明。
-5. 检查提交内容不含账号凭证、私人数据、机器路径或临时构建产物。
+4. 使用 Windows 实际鼠标检查主界面和“正在播放”的最小化、最大化/还原、关闭到托盘、“收起”和标题栏拖动，覆盖普通、最小尺寸、最大化状态。Playwright 点击不能代替原生命中测试。
+5. 手测真实播放、seek、收藏夹、托盘、媒体键、退出和续播。未完成的项目写进版本说明。
+6. 检查提交内容不含账号凭证、私人数据、机器路径或临时构建产物。
 
 `CI` 工作流自动检查每次 push/PR。`Build Windows` 工作流由维护者手动触发，只上传构建产物，不自动创建或发布 Release。
 

@@ -2,7 +2,7 @@
 
 一个使用 Electron、Vue 3 和 TypeScript 编写的 Windows 桌面播放器，把公开的 B 站音乐视频组织成播放队列。无需登录，支持搜索、公开收藏夹、喜欢列表和托盘播放。
 
-本项目是个人学习与实验项目，与哔哩哔哩没有隶属或合作关系。目前支持 Windows 10/11 x64，首个公开版本为 `v0.1.0` 测试版。
+本项目是个人学习与实验项目，与哔哩哔哩没有隶属或合作关系。目前支持 Windows 10/11 x64，当前公开版本为 `v0.1.1` 测试版。
 
 ![播放队列](docs/images/queue.png)
 
@@ -16,9 +16,11 @@
 
 | 文件 | 用途 |
 | --- | --- |
-| `BiliBiliMusic-Setup-0.1.0.exe` | 安装向导，可选择安装目录并创建快捷方式 |
-| `BiliBiliMusic-Portable-0.1.0.exe` | 免安装启动；用户数据仍保存在系统应用数据目录 |
+| `BiliBiliMusic-Setup-0.1.1.exe` | 安装向导，可选择安装目录并创建快捷方式 |
+| `BiliBiliMusic-Portable-0.1.1.exe` | 免安装启动；用户数据仍保存在系统应用数据目录 |
 | `SHA256SUMS.txt` | 下载文件的 SHA-256 校验值 |
+
+`v0.1.1` 修复了打开“正在播放”后窗口按钮和“收起”无法点击的问题，建议 `v0.1.0` 用户升级。
 
 运行前先从旧版托盘菜单选择“退出”。应用只允许一个实例，新启动请求会激活已运行的窗口。
 
@@ -27,7 +29,7 @@
 在 PowerShell 中核对文件：
 
 ```powershell
-Get-FileHash .\BiliBiliMusic-Portable-0.1.0.exe -Algorithm SHA256
+Get-FileHash .\BiliBiliMusic-Portable-0.1.1.exe -Algorithm SHA256
 ```
 
 ## 功能

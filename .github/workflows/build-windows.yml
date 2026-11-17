@@ -31,6 +31,8 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Build installer and portable application
         run: npm run dist
+      - name: Verify packaged window controls and state saving
+        run: node scripts/packaged-smoke.cjs
       - name: Write SHA-256 checksums
         shell: pwsh
         run: |

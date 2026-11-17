@@ -151,11 +151,12 @@ onUnmounted(() => window.removeEventListener('keydown', onKey))
 
 .backdrop {
   position: absolute;
-  inset: -80px;
+  /* 原生窗口命中区域不会跟随 overflow 裁剪，背景边界必须留在详情页内。 */
+  inset: 0;
   background-position: center;
   background-size: cover;
   filter: blur(64px) brightness(0.32);
-  transform: scale(1.1);
+  pointer-events: none;
 }
 
 .close {

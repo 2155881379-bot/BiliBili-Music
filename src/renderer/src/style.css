@@ -443,17 +443,20 @@ input[type='text']::placeholder {
 
 /* 无边框窗口：拖拽区域。交互元素需设为 no-drag 才能正常点击 */
 .sidebar,
-.panel-head,
-.now-playing {
+.panel-head {
   -webkit-app-region: drag;
 }
 
 .sidebar button,
 .sidebar input,
 .panel-head button,
-.panel-head input,
-.now-playing button,
-.now-playing input,
-.now-playing .row {
+.panel-head input {
+  -webkit-app-region: no-drag;
+}
+
+/* Electron 的原生命中区域不按 DOM 遮挡裁剪：扩大的模糊背景、兄弟元素
+   继承 drag 会吞掉标题栏和收起按钮。播放详情内全部接收鼠标，拖窗用标题栏。 */
+.now-playing,
+.now-playing * {
   -webkit-app-region: no-drag;
 }
