@@ -16,7 +16,7 @@
     "typecheck": "vue-tsc --noEmit",
     "test": "vitest run",
     "test:perf": "node scripts/performance.cjs optimized",
-    "dist": "electron-vite build && electron-builder --win"
+    "dist": "electron-vite build && electron-builder --win --publish never"
   },
   "build": {
     "appId": "com.bilibili.music",

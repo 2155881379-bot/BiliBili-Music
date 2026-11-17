@@ -18,6 +18,8 @@
 
 `CI` 工作流自动检查每次 push/PR。`Build Windows` 工作流由维护者手动触发，只上传构建产物，不自动创建或发布 Release。
 
+`npm run dist` 显式使用 `--publish never`：electron-builder 26 在 CI 中可能自动启用发布，不能只依赖工作流没有写上传步骤来阻止该行为。生成安装包与公开 Release 分开执行，构建工作流只需只读仓库权限。
+
 ## 发布
 
 以下命令需要已登录 GitHub CLI，并在有 `origin` 的仓库中执行。先确认当前提交就是通过测试并用于打包的版本：
