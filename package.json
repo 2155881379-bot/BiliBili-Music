@@ -1,0 +1,102 @@
+{
+  "name": "bilibili-music",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "author": "BiliBili Music contributors",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "description": "匿名播放 B 站音乐视频的桌面播放器",
+  "main": "./out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "start": "electron-vite preview",
+    "typecheck": "vue-tsc --noEmit",
+    "test": "vitest run",
+    "test:perf": "node scripts/performance.cjs optimized",
+    "dist": "electron-vite build && electron-builder --win"
+  },
+  "build": {
+    "appId": "com.bilibili.music",
+    "productName": "BiliBili Music",
+    "copyright": "BiliBili Music",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "out/**/*",
+      "package.json",
+      "LICENSE",
+      "THIRD-PARTY-NOTICES.txt"
+    ],
+    "extraResources": [
+      {
+        "from": "build/tray.png",
+        "to": "tray.png"
+      }
+    ],
+    "asar": true,
+    "electronLanguages": [
+      "zh-CN",
+      "en-US"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "BiliBiliMusic-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "BiliBili Music",
+      "artifactName": "BiliBiliMusic-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "BiliBiliMusic-Portable-${version}.${ext}"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@vitejs/plugin-vue": "^6.0.11",
+    "@vue/compiler-sfc": "^3.5.45",
+    "electron": "^45.3.3",
+    "electron-builder": "^26.18.0",
+    "electron-vite": "^6.0.0",
+    "esbuild": "^0.28.2",
+    "fast-check": "^4.3.0",
+    "playwright": "^1.65.1",
+    "pinia": "^2.2.6",
+    "typescript": "^5.7.2",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.0",
+    "vue": "^3.5.13",
+    "vue-tsc": "^3.3.14"
+  },
+  "homepage": "https://github.com/2155881379-bot/BiliBili-Music#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2155881379-bot/BiliBili-Music.git"
+  },
+  "bugs": {
+    "url": "https://github.com/2155881379-bot/BiliBili-Music/issues"
+  }
+}

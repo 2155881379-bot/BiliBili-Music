@@ -1,0 +1,6 @@
+# 源码在不同系统中使用一致换行，减少构建差异
+* text=auto eol=lf
+# 批处理文件必须是 CRLF，否则 cmd 会吃掉每行首字符
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.sh text eol=lf
